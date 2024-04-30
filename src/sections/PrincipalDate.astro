@@ -14,10 +14,14 @@
                 const diff = tzOffset * -1;
                 const gmt = diff >= 0 ? `GMT+${diff}` : `GMT-${Math.abs(diff)}`;
 
+                const TZ_DICTIONARY = {
+                    "GMT+1": "CET",
+                }
 
+                const tz = TZ_DICTIONARY[gmt] ?? gmt;
 
                 const selfScript = document.currentScript;
-                selfScript.parentNode.innerHTML = `${date} ${gmt}`
+                selfScript.parentNode.innerHTML = `${date}H ${tz}`
             </script>
         </span>
     </h2>
